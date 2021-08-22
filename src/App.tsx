@@ -10,6 +10,7 @@ import { Controller, useForm } from "react-hook-form";
 import { register } from "./serviceWorker";
 import CreateWatchList from "./features/counter/watchList/CreateWatchList";
 import WatchList from "./features/counter/watchList/WatchList";
+import AllCharts from "./app/models/watchList/AllCharts";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -18,23 +19,24 @@ function App() {
   const onSubmit = (data: any) => console.log(data);
 
   const { control, handleSubmit } = useForm<IWatchListItem>();
-  const onAddClick = () => {
-    dispatch(
-      addItem({
-        instrumentSymbol: "A",
-        addedPrice: 0.0,
-        instrumentType: "EQ",
-        buyTargetPrice: 0.0,
-        sellTargetPrice: 0.0,
-      })
-    );
-  };
+  // const onAddClick = () => {
+  //   dispatch(
+  //     addItem({
+  //       instrumentSymbol: "A",
+  //       addedPrice: 0.0,
+  //       instrumentType: "EQ",
+  //       buyTargetPrice: 0.0,
+  //       sellTargetPrice: 0.0,
+  //     })
+  //   );
+  // };
   return (
     <div className="App">
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <CreateWatchList></CreateWatchList>
-        <WatchList></WatchList>
+        <AllCharts />
+        <CreateWatchList />
+        <WatchList />
 
         {/* <form onSubmit={handleSubmit(onSubmit)}>
           <Controller

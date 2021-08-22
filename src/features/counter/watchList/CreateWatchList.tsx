@@ -10,6 +10,7 @@ const CreateWatchList = () => {
   const onSubmit = (data: any) => {
     dispatch(
       addItem({
+        id: (new Date()).getTime(),
         instrumentSymbol: data.symbol,
         instrumentType: "EQ",
         addedPrice: data.addedPrice,
