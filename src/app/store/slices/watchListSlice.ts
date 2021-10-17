@@ -8,7 +8,7 @@ export interface WatchListState {
 }
 
 const initialState: WatchListState = {
-  list: [{ name: "FirstList", items: [] }],
+  list: [{ name: "FirstList", items: [{id:0,instrumentSymbol:"A",buyTargetPrice:0,addedPrice:0,instrumentType:"EQ",sellTargetPrice:0},{id:1,instrumentSymbol:"BB",buyTargetPrice:0,addedPrice:0,instrumentType:"EQ",sellTargetPrice:0},{id:2,instrumentSymbol:"DOCS",buyTargetPrice:0,addedPrice:0,instrumentType:"EQ",sellTargetPrice:0}] }],
 };
 export const watchListSlice = createSlice({
   name: "watchlist",
