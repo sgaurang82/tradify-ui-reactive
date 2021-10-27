@@ -1,6 +1,6 @@
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import { useAppSelector } from '../../../app/hooks';
-import { watchList } from '../../../app/store/slices/watchListSlice';
+import { useAppSelector } from '../../app/hooks';
+import { watchList } from '../../app/store/slices/watchListSlice';
 
 const WatchList = () => {
 	const list = useAppSelector(watchList);

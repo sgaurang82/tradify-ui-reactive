@@ -1,14 +1,8 @@
 import './App.css';
 
-import { useAppSelector } from './app/hooks';
-import { watchList } from './app/store/slices/watchListSlice';
-import CreateWatchList from './features/counter/watchList/CreateWatchList';
-import WatchList from './features/counter/watchList/WatchList';
-
-import StockChart from './features/charts/stockChart';
-
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import Dashboard from './features/dashboards/Dashboard';
 export const theme = createTheme({
 	palette: {
 		primary: {
@@ -25,22 +19,11 @@ export const theme = createTheme({
 });
 
 function App() {
-	const list = useAppSelector(watchList);
-
 	return (
 		<div className='App'>
 			<ThemeProvider theme={theme}>
 				<header className='App-header'>
-					<div
-						style={{ display: 'flex', alignItems: 'start', flexWrap: 'wrap' }}
-					>
-						{list[0].items.map((item) => (
-							<StockChart symbol={item.instrumentSymbol} />
-						))}
-					</div>
-
-					<CreateWatchList />
-					<WatchList />
+					<Dashboard />
 				</header>
 			</ThemeProvider>
 		</div>

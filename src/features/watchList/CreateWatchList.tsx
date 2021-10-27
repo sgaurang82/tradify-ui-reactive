@@ -1,8 +1,8 @@
 import { TextField, IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { Controller, useForm } from 'react-hook-form';
-import { useAppDispatch } from '../../../app/hooks';
-import { addItem } from '../../../app/store/slices/watchListSlice';
+import { useAppDispatch } from '../../app/hooks';
+import { addItem } from '../../app/store/slices/watchListSlice';
 
 const CreateWatchList = () => {
 	const { control, handleSubmit } = useForm();
@@ -20,7 +20,7 @@ const CreateWatchList = () => {
 		);
 	};
 	return (
-		<div>
+		<div style={{ display: 'flex', alignItems: 'flex-start' }}>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<Controller
 					name='symbol'

@@ -34,6 +34,8 @@ const StockChart = (props: IProps) => {
 
 	const [showActions, setShowActions] = useState<boolean>(true);
 
+	const [dataPointCollections, setDataPointCollections] = useState<any>([]);
+
 	const durationList = ['1d', '5d', '1m', '3m', '6m', '9m', '1y', '5y', '10y'];
 
 	const numFormatter = (num: number) => {
@@ -53,14 +55,16 @@ const StockChart = (props: IProps) => {
 			)
 			.then((res) => setChartData(res.data))
 			.catch((e) => console.log(e));
+	}, [duration, props.symbol]);
 
-		// axios
-		//   .get(
-		//     //"https://cloud.iexapis.com/stable/stock/twtr/chart/10d?token=pk_458def83f0a5453396f377545831ab6a"
-		//     `https://sandbox.iexapis.com/stable/stock/${props.symbol}/intraday-prices?token=Tpk_d10d989b63894ee697c4ff8f0273353d`
-		//   )
-		//   .then((res) => setChartData(res.data))
-		//   .catch((e) => console.log(e));
+	useEffect(() => {
+		axios
+			.get(
+				//"https://cloud.iexapis.com/stable/stock/twtr/chart/10d?token=pk_458def83f0a5453396f377545831ab6a"
+				`https://sandbox.iexapis.com/stable/stock/${props.symbol}/batch?types=quote,news,chart&range=1m&last=10&&token=Tpk_d10d989b63894ee697c4ff8f0273353d`
+			)
+			.then((res) => console.log(res.data))
+			.catch((e) => console.log(e));
 	}, [duration, props.symbol]);
 
 	useEffect(() => {
